@@ -1,0 +1,154 @@
+:root {
+    --bg-dark: #0b0f19;
+    --bg-card: #151f32;
+    --text-white: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    /* Warna Status Batang Visualizer */
+    --bar-default: #3b82f6;   /* Biru */
+    --bar-compare: #f59e0b;   /* Oranye */
+    --bar-swap: #ef4444;      /* Merah */
+    --bar-sorted: #10b981;    /* Hijau */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.visualizer-container {
+    width: 100%;
+    max-width: 850px;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.header-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-box h1 {
+    font-size: 2.2rem;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.header-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Panel Tombol */
+.control-panel {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: #2563eb; }
+
+.btn-secondary {
+    background-color: #374151;
+    color: var(--text-white);
+}
+
+.btn-secondary:hover:not(:disabled) { background-color: #4b5563; }
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Wadah Utama Grafik Batang */
+.chart-canvas {
+    height: 320px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end; /* Memastikan batang tumbuh dari bawah ke atas */
+    justify-content: center;
+    gap: 6px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Komponen Batang Tunggal */
+.data-bar {
+    flex: 1;
+    background-color: var(--bar-default);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.1s ease, background-color 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Class Utility untuk Manipulasi via DOM JS */
+.data-bar.comparing { background-color: var(--bar-compare); }
+.data-bar.swapping { background-color: var(--bar-swap); }
+.data-bar.sorted { background-color: var(--bar-sorted); }
+
+/* Legend / Keterangan */
+.legend-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.color-default { background-color: var(--bar-default); }
+.color-compare { background-color: var(--bar-compare); }
+.color-swap { background-color: var(--bar-swap); }
+.color-sorted { background-color: var(--bar-sorted); }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Algorithm Visualizer 📊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="visualizer-container">
+        <!-- Header -->
+        <header class="header-box">
+            <h1>📊 Bubble Sort Visualizer</h1>
+            <p>Visualisasi bagaimana algoritma Bubble Sort mengurutkan data dari terkecil ke terbesar secara step-by-step.</p>
+        </header>
+
+        <!-- Panel Kontrol Utama -->
+        <div class="control-panel">
+            <button id="btn-randomize" class="btn btn-secondary">Acak Data 🔄</button>
+            <button id="btn-sort" class="btn btn-primary">Mulai Urutkan 🚀</button>
+        </div>
+
+        <!-- Canvas Tempat Diagram Batang (Data) Ditampilkan -->
+        <div class="chart-canvas" id="chart-canvas">
+            <!-- Batang-batang diagram akan di-generate dinamis oleh JavaScript -->
+        </div>
+
+        <!-- Keterangan Warna Status -->
+        <div class="legend-container">
+            <div class="legend-item"><span class="legend-color color-default"></span> Belum Urut</div>
+            <div class="legend-item"><span class="legend-color color-compare"></span> Sedang Dibandingkan</div>
+            <div class="legend-item"><span class="legend-color color-swap"></span> Sedang Ditukar</div>
+            <div class="legend-item"><span class="legend-color color-sorted"></span> Sudah Berurutan</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
